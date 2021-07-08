@@ -1,4 +1,4 @@
-import Guild, { IGuild } from '../classes/guild';
+import Project, { IProject } from '../classes/project';
 import Client from '../client';
 import Collection from '@discordjs/collection';
 import { EventEmitter } from 'events';
@@ -8,7 +8,7 @@ interface Events {
   ready: () => void;
 }
 
-declare interface GuildManager {
+declare interface ProjectManager {
   on: <U extends keyof Events>(event: U, listener: Events[U]) => this;
   once: <U extends keyof Events>(event: U, listener: Events[U]) => this;
   emit: <U extends keyof Events>(
@@ -17,11 +17,11 @@ declare interface GuildManager {
   ) => boolean;
 }
 
-type GuildResolvable = string | Guild;
+type ProjectResolvable = string | number | Project;
 
-class GuildManager extends EventEmitter {
+class ProjectManager extends EventEmitter {
   client: Client;
-  cache: Collection<string, Guild>;
+  cache: Collection<string, Project>;
 
   private _ready = false;
 
@@ -41,25 +41,27 @@ class GuildManager extends EventEmitter {
     this.emit('ready');
   }
 
-  resolve(guild: GuildResolvable): Guild | undefined {
-    if (guild instanceof Guild) return guild;
-    return this.cache.get(guild);
+  resolve(project: ProjectResolvable): Project | undefined {
+    if (project instanceof Project) return project;
+    return this.cache.get(project.toString());
   }
 
-  resolveID(guild: GuildResolvable): string | undefined {
-    if (typeof guild === 'string') return this.cache.get(guild)?.id;
-    return guild?.id;
+  resolveID(project: ProjectResolvable): string | undefined {
+    if (typeof project === 'string' || typeof project === 'number') {
+      return this.cache.get(project.toString())?.id;
+    }
+    return project?.id;
   }
 
-  fetch(id = '', force = false, cache = true): Promise<Guild | Guild[]> {
+  fetch(id = '', force = false, cache = true): Promise<Project | Project[]> {
     return new Promise((resolve, reject) => {
       Promise.resolve().then(async () => {
         if (!force && !id) return this.cache;
         if (id && !force && this.cache.has(id)) {
-          return this.cache.get(id) as Guild;
+          return this.cache.get(id) as Project;
         }
 
-        const url = `/guilds/${id}`;
+        const url = `/projects/${id}`;
         const res = await this.client.axios.get(url);
         if (!Helpers.isOk(res.status)) {
           const error = new Error(
@@ -71,19 +73,21 @@ class GuildManager extends EventEmitter {
         }
 
         if (id) {
-          const guild = new Guild(res.data as IGuild, this.client);
+          const project = new Project(res.data as IProject, this.client);
 
-          if (cache) this.cache.set(id, guild);
-          return resolve(guild);
+          if (cache) this.cache.set(id, project);
+          return resolve(project);
         }
 
-        const guilds = (res.data as IGuild[])
-          .filter((g) => g._id !== undefined || g._id !== null)
-          .map((g) => new Guild(g, this.client));
+        const projects = (res.data as IProject[])
+          .filter((p) => p._id !== undefined || p._id !== null)
+          .map((p) => new Project(p, this.client));
         if (cache) {
-          guilds.forEach((g) => this.cache.set(g.id as string, g));
+          // eslint-disable-next-line prettier/prettier
+          projects.forEach((p) => this.cache.set(p.id as string, p));
         }
-        return resolve(guilds);
+
+        return resolve(projects);
       });
     });
   }
@@ -93,4 +97,4 @@ class GuildManager extends EventEmitter {
   }
 }
 
-export default GuildManager;
+export default ProjectManager;
