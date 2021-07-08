@@ -2,7 +2,6 @@ import axios, { AxiosInstance } from 'axios';
 import { EventEmitter } from 'events';
 import Helpers from '../helpers';
 import Managers from './managers';
-import Submission from './classes/submission';
 
 type ClientOptions = {
   baseURL?: string;
