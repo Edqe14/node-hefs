@@ -13,8 +13,12 @@ module.exports = {
   rules: {
     'prettier/prettier': [
       'error',
-      { singleQuote: true, jsxSingleQuote: true },
+      { singleQuote: true, trailingComma: 'all' },
       { usePrettierrc: false }
-    ]
+    ],
+    'arrow-parens': ['error', 'always'],
+    'complexity': 'off',
+    '@typescript-eslint/no-extra-parens': 'off',
+    '@typescript-eslint/naming-convention': 'off'
   }
 }
