@@ -19,6 +19,7 @@ module.exports = {
     'arrow-parens': ['error', 'always'],
     'complexity': 'off',
     '@typescript-eslint/no-extra-parens': 'off',
-    '@typescript-eslint/naming-convention': 'off'
+    '@typescript-eslint/naming-convention': 'off',
+    '@typescript-eslint/no-confusing-void-expression': 'off'
   }
 }
