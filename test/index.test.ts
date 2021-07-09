@@ -15,7 +15,7 @@ const client = new Client({
 
 // Skip several tests if session and fetchSubmissionsOnStart is not set
 const skip = client.options.fetchSubmissionsOnStart && !!client.options.session;
-const skipDescribeIfUnavailable = skip ? describe : describe.skip;
+const skipDescribeIfUnavailable = (bool = skip) => bool ? describe : describe.skip;
 const skipTestIfUnavailable = client.options.session ? it : it.skip;
 
 // eslint-disable-next-line prettier/prettier
@@ -109,10 +109,10 @@ describe('client', () => {
           shortDescription: 'Hello from Node',
           description: '',
           date: new Date(),
-        });
-  
-        proj = newProj;
-        resolve(newProj);
+        }).then((p) => {
+          proj = p;
+          return p;
+        }).finally(resolve as () => void);
 
         expect(newProj).toBeInstanceOf(Classes.Project);
         expect(newProj.title).toEqual('Test Node API');
@@ -125,13 +125,12 @@ describe('client', () => {
         await waitReady;
         await projPromise;
   
-        const editedProj = await proj.edit({
+        const editedProj = await proj?.edit({
           description: 'Edited from Node!'
-        });
+        }).finally(resolve as () => void);
   
         expect(editedProj).toBeInstanceOf(Classes.Project);
         expect(editedProj.description).toEqual('Edited from Node!');
-        resolve(1);
       });
     });
 
@@ -140,14 +139,14 @@ describe('client', () => {
       await projPromise;
       await editPromise;
 
-      await proj.delete();
+      await proj?.delete();
 
       expect(projects.cache.has(proj.id as string)).toBe(false);
     });
   });
 
   // Skip submissions test if fetching on start is disabled
-  skipDescribeIfUnavailable('submissions manager', () => {
+  skipDescribeIfUnavailable()('submissions manager', () => {
     const submissions = client.submissions;
     it('should hydrated the cache', async () => {
       await waitReady;
@@ -167,7 +166,7 @@ describe('client', () => {
     // TODO: test submission delete
   });
 
-  skipDescribeIfUnavailable('admin manager', () => {
+  skipDescribeIfUnavailable(!!client.options.session)('admin manager', () => {
     const admin = client.admin;
     it('should hydrated the cache', async () => {
       await waitReady;
