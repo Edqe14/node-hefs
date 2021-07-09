@@ -11,7 +11,7 @@
     "prepare": "npx husky install && node .husky/link.js",
     "build": "tsc",
     "extractor": "api-extractor run --local --verbose",
-    "docs": "typedoc ./src/index.ts --readme ./README.md --out docs --theme ./node_modules/typedoc-default-themes-dark/bin/default/",
+    "docs": "typedoc",
     "report": "npm run lint && npm run extractor && npm run docs"
   },
   "repository": {
@@ -42,7 +42,6 @@
     "prettier": "2.3.2",
     "ts-jest": "27.0.3",
     "typedoc": "0.21.2",
-    "typedoc-default-themes-dark": "0.12.10",
     "typescript": "4.3.5"
   },
   "lint-staged": {
@@ -55,6 +54,6 @@
     "axios": "0.21.1"
   },
   "files": [
-		"dist/*"
-	]
+    "dist/*"
+  ]
 }

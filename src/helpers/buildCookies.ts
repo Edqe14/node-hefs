@@ -1,4 +1,10 @@
-export default function buildCookies(cookies: Record<string, string>): string {
+/**
+ * Turn an object to a cookie string;
+ * @param cookies Cookies object
+ *
+ * @returns Stringified cookies
+ */
+const buildCookies = (cookies: Record<string, string>): string => {
   return Object.keys(cookies)
     .map((k) => {
       if (cookies[k] === undefined || cookies[k] === null) return null;
@@ -6,4 +12,6 @@ export default function buildCookies(cookies: Record<string, string>): string {
     })
     .filter((v) => v !== null)
     .join('; ');
-}
+};
+
+export default buildCookies;
