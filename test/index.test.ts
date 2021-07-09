@@ -1,15 +1,20 @@
 import Classes from '../src/modules/classes';
 import Client from '../src/';
 import dotenv from 'dotenv';
+import { join } from 'path';
 import Project from '../src/modules/classes/project';
-dotenv.config();
+dotenv.config({
+  path: join(__dirname, '.env'),
+});
 
+jest.setTimeout(30000);
 const client = new Client({
   session: process.env.SESSION,
   // fetchSubmissionsOnStart: true,
 });
 
-const skip = client.options.fetchSubmissionsOnStart && client.options.session;
+// Skip several tests if session and fetchSubmissionsOnStart is not set
+const skip = client.options.fetchSubmissionsOnStart && !!client.options.session;
 const skipDescribeIfUnavailable = skip ? describe : describe.skip;
 const skipTestIfUnavailable = client.options.session ? it : it.skip;
 
