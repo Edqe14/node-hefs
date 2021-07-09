@@ -3,6 +3,7 @@ import Client from '../client';
 import Collection from '@discordjs/collection';
 import { EventEmitter } from 'events';
 import Helpers from '../../helpers';
+import { format } from 'util';
 
 interface Events {
   ready: () => void;
@@ -54,20 +55,15 @@ class GuildManager extends EventEmitter {
   fetch(id = '', force = false, cache = true): Promise<Guild | Guild[]> {
     return new Promise((resolve, reject) => {
       Promise.resolve().then(async () => {
-        if (!force && !id) return this.cache;
+        if (!force && !id) return resolve(this.cache.array());
         if (id && !force && this.cache.has(id)) {
-          return this.cache.get(id) as Guild;
+          return resolve(this.cache.get(id) as Guild);
         }
 
-        const url = `/guilds/${id}`;
-        const res = await this.client.axios.get(url);
-        if (!Helpers.isOk(res.status)) {
-          const error = new Error(
-            `Error ${res.status} when fetching "${url}" endpoint`,
-          );
-
-          this.client.emit('error', error);
-          return reject(error);
+        const url = format(this.client.endpoints.guilds, id);
+        const res = await this.client.axios.get(url).catch((e) => e);
+        if (!res?.status || !Helpers.isOk(res?.status as number)) {
+          return reject(res);
         }
 
         if (id) {
@@ -84,6 +80,29 @@ class GuildManager extends EventEmitter {
           guilds.forEach((g) => this.cache.set(g.id as string, g));
         }
         return resolve(guilds);
+      });
+    });
+  }
+
+  create(guildConfig: IGuild, cache = true): Promise<Guild> {
+    return new Promise((resolve, reject) => {
+      Promise.resolve().then(async () => {
+        if (!guildConfig || typeof guildConfig !== 'object') {
+          const error = new TypeError('Guild config must be an object');
+          return reject(error);
+        }
+
+        const url = format(this.client.endpoints.guilds, '');
+        const res = await this.client.axios
+          .post(url, guildConfig)
+          .catch((e) => e);
+        if (!res?.status || !Helpers.isOk(res?.status as number)) {
+          return reject(res);
+        }
+
+        const guild = new Guild(res.data as IGuild, this.client);
+        if (cache) this.cache.set(guild.id as string, guild);
+        return resolve(guild);
       });
     });
   }

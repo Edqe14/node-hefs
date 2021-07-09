@@ -2,6 +2,7 @@ import Guild from './guild';
 import Link from './link';
 import Media from './media';
 import Project from './project';
+import Setting from './setting';
 import Submission from './submission';
 
 export default {
@@ -10,4 +11,5 @@ export default {
   Media,
   Link,
   Submission,
+  Setting,
 };

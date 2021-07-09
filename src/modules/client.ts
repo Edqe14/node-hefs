@@ -1,4 +1,9 @@
 import axios, { AxiosInstance } from 'axios';
+import endpoints, {
+  EndpointNames,
+  EndpointOptions,
+  Endpoints,
+} from './endpoints';
 import { EventEmitter } from 'events';
 import Helpers from '../helpers';
 import Managers from './managers';
@@ -10,6 +15,7 @@ type ClientOptions = {
   cookies?: Record<string, string>;
   disableHydration?: boolean;
   fetchSubmissionsOnStart?: boolean;
+  endpoints?: EndpointOptions;
 };
 
 interface Events {
@@ -28,10 +34,12 @@ declare interface Client {
 
 class Client extends EventEmitter {
   axios: AxiosInstance;
+  options: ClientOptions;
+  endpoints: Endpoints;
   guilds: import('./managers/guilds').default;
   projects: import('./managers/projects').default;
   submissions: import('./managers/submission').default;
-  options: ClientOptions;
+  admin: import('./managers/admin').default;
 
   private _ready = false;
 
@@ -49,7 +57,13 @@ class Client extends EventEmitter {
       session: undefined,
       disableHydration: false,
       fetchSubmissionsOnStart: false,
+      endpoints: {},
       ...options,
+    };
+
+    this.endpoints = {
+      ...endpoints,
+      ...this.options.endpoints,
     };
 
     const cookie = Helpers.buildCookies({
@@ -69,6 +83,7 @@ class Client extends EventEmitter {
     this.guilds = new Managers.GuildManager(this);
     this.projects = new Managers.ProjectManager(this);
     this.submissions = new Managers.SubmissionManager(this);
+    this.admin = new Managers.AdminManager(this);
     this.waitAllReady();
   }
 
@@ -90,9 +105,6 @@ class Client extends EventEmitter {
         this.projects.cache.array().map((p) => p.fetchSubmissions()),
       );
 
-      // for (const projects of this.projects.cache.array()) {
-      // }
-
       if (!this.options.disableHydration) {
         submissions.flat().forEach((s) => {
           this.submissions.cache.set(s.id, s);
@@ -102,6 +114,17 @@ class Client extends EventEmitter {
 
     this._ready = true;
     this.emit('ready');
+  }
+
+  setEndpoint(endpoint: EndpointNames, value: string): void {
+    if (!endpoint || !value) {
+      throw new Error('Endpoint or value must not be empty');
+    }
+    if (typeof endpoint !== 'string' || typeof value !== 'string') {
+      throw new TypeError('Endpoint or value must be a string');
+    }
+
+    this.endpoints[endpoint] = value;
   }
 
   get ready(): boolean {

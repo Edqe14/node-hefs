@@ -1,13 +1,15 @@
 import Classes from '../src/modules/classes';
 import Client from '../src/';
-import Collection from '@discordjs/collection';
 import dotenv from 'dotenv';
 dotenv.config();
 
 const client = new Client({
   session: process.env.SESSION,
-  fetchSubmissionsOnStart: true,
+  // fetchSubmissionsOnStart: true,
 });
+
+const skipDescribeIfUnavailable = client.options.fetchSubmissionsOnStart && client.options.session ? describe : describe.skip;
+const skipTestIfUnavailable = client.options.session ? it : it.skip;
 
 // eslint-disable-next-line prettier/prettier
 const waitReady = new Promise((resolve) => client.once('ready', resolve as () => void));
@@ -35,12 +37,16 @@ describe('client', () => {
 
     it('should fetch a guild', async () => {
       await waitReady;
-      expect(guilds.fetch()).resolves.toBeInstanceOf(Collection);
+      expect(guilds.fetch()).resolves.toBeInstanceOf(Array);
       expect(
         guilds.fetch('hirD8XHurcDYFoNQOFh7p', true),
       ).resolves.toBeInstanceOf(Classes.Guild);
       expect(guilds.fetch('notExist')).rejects.toBeInstanceOf(Error);
     });
+
+    // TODO: test guild create
+    // TODO: test guild update
+    // TODO: test guild delete
   });
 
   describe('project manager', () => {
@@ -60,9 +66,9 @@ describe('client', () => {
 
     it('should fetch a project', async () => {
       await waitReady;
-      expect(projects.fetch()).resolves.toBeInstanceOf(Collection);
+      expect(projects.fetch()).resolves.toBeInstanceOf(Array);
       expect(
-        projects.fetch('hirD8XHurcDYFoNQOFh7p', true),
+        projects.fetch('1', true),
       ).resolves.toBeInstanceOf(Classes.Project);
       expect(projects.fetch('notExist')).rejects.toBeInstanceOf(Error);
     });
@@ -81,10 +87,15 @@ describe('client', () => {
         const project = projects.cache.first();
         expect(project!.media![0]).toBeInstanceOf(Classes.Media);
       });
-    })
+    });
+
+    // TODO: test project create
+    // TODO: test project edit
+    // TODO: test project delete
   });
 
-  describe('submissions manager', () => {
+  // Skip submissions test if fetching on start is disabled
+  skipDescribeIfUnavailable('submissions manager', () => {
     const submissions = client.submissions;
     it('should hydrated the cache', async () => {
       await waitReady;
@@ -97,6 +108,33 @@ describe('client', () => {
         submissions.resolve('60a3d1b209398d299039ee23'),
       ).toBeInstanceOf(Classes.Submission);
       expect(submissions.resolve('notExist')).toBeUndefined();
+    });
+
+    // TODO: test submission create
+    // TODO: test submission edit
+    // TODO: test submission delete
+  });
+
+  skipDescribeIfUnavailable('admin manager', () => {
+    const admin = client.admin;
+    it('should hydrated the cache', async () => {
+      await waitReady;
+      expect(admin.cache.size).not.toBe(0);
+    });
+
+    it('should resolve whitelist setting', async () => {
+      await waitReady;
+      expect(
+        admin.resolve('whitelist'),
+      ).toBeInstanceOf(Classes.Submission);
+      expect(admin.resolve('notExist')).toBeUndefined();
+    });
+
+    it('should fetch whitelist setting', async () => {
+      await waitReady;
+      expect(
+        admin.fetch('whitelist', true),
+      ).resolves.toBeInstanceOf(Classes.Setting);
     });
   });
 });

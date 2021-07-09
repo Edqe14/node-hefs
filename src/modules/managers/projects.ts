@@ -3,6 +3,7 @@ import Client from '../client';
 import Collection from '@discordjs/collection';
 import { EventEmitter } from 'events';
 import Helpers from '../../helpers';
+import { format } from 'util';
 
 interface Events {
   ready: () => void;
@@ -56,20 +57,15 @@ class ProjectManager extends EventEmitter {
   fetch(id = '', force = false, cache = true): Promise<Project | Project[]> {
     return new Promise((resolve, reject) => {
       Promise.resolve().then(async () => {
-        if (!force && !id) return this.cache;
+        if (!force && !id) return resolve(this.cache.array());
         if (id && !force && this.cache.has(id)) {
-          return this.cache.get(id) as Project;
+          return resolve(this.cache.get(id) as Project);
         }
 
-        const url = `/projects/${id}`;
-        const res = await this.client.axios.get(url);
-        if (!Helpers.isOk(res.status)) {
-          const error = new Error(
-            `Error ${res.status} when fetching "${url}" endpoint`,
-          );
-
-          this.client.emit('error', error);
-          return reject(error);
+        const url = format(this.client.endpoints.projects, id);
+        const res = await this.client.axios.get(url).catch((e) => e);
+        if (!res?.status || !Helpers.isOk(res?.status as number)) {
+          return reject(res);
         }
 
         if (id) {
@@ -92,8 +88,27 @@ class ProjectManager extends EventEmitter {
     });
   }
 
-  get ready(): boolean {
-    return this._ready;
+  create(projectConfig: IProject, cache = true): Promise<Project> {
+    return new Promise((resolve, reject) => {
+      Promise.resolve().then(async () => {
+        if (!projectConfig || typeof projectConfig !== 'object') {
+          const error = new TypeError('Project config must be an object');
+          return reject(error);
+        }
+
+        const url = format(this.client.endpoints.projects, '');
+        const res = await this.client.axios
+          .post(url, projectConfig)
+          .catch((e) => e);
+        if (!res?.status || !Helpers.isOk(res?.status as number)) {
+          return reject(res);
+        }
+
+        const project = new Project(res.data as IProject, this.client);
+        if (cache) this.cache.set(project.id as string, project);
+        return resolve(project);
+      });
+    });
   }
 }
 

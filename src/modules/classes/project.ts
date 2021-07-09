@@ -4,6 +4,7 @@ import Submission, { ISubmission } from './submission';
 import Client from '../client';
 import Guild from './guild';
 import Helpers from '../../helpers';
+import { format } from 'util';
 
 class Project {
   id?: string;
@@ -55,15 +56,10 @@ class Project {
   fetchSubmissions(cache = true): Promise<Submission[]> {
     return new Promise((resolve, reject) => {
       Promise.resolve().then(async () => {
-        const url = `/submissions/${this.id}`;
-        const res = await this.client.axios.get(url);
-        if (!Helpers.isOk(res.status)) {
-          const error = new Error(
-            `Error ${res.status} when fetching "${url}" endpoint`,
-          );
-
-          this.client.emit('error', error);
-          return reject(error);
+        const url = format(this.client.endpoints.submissions, this.id);
+        const res = await this.client.axios.get(url).catch((e) => e);
+        if (!res?.status || !Helpers.isOk(res?.status as number)) {
+          return reject(res);
         }
 
         const submissions = (res.data as ISubmission[])
@@ -73,6 +69,70 @@ class Project {
           submissions.forEach((s) => this.submissions?.push(s));
         }
         return resolve(submissions);
+      });
+    });
+  }
+
+  edit(projectConfig: IProject): Promise<Project> {
+    return new Promise((resolve, reject) => {
+      Promise.resolve().then(async () => {
+        if (!projectConfig || typeof projectConfig !== 'object') {
+          const error = new TypeError('Project config must be an object');
+          return reject(error);
+        }
+
+        const url = format(this.client.endpoints.projects, this.id);
+        const res = await this.client.axios
+          .patch(url, projectConfig)
+          .catch((e) => e);
+        if (!res?.status || !Helpers.isOk(res?.status as number)) {
+          return reject(res);
+        }
+
+        // eslint-disable-next-line object-curly-newline
+        const {
+          _id,
+          status,
+          guild,
+          media,
+          title,
+          shortDescription,
+          description,
+          links,
+          date,
+          flags,
+          ogImage,
+        } = res.data as IProject;
+
+        this.id = _id?.toString();
+        this.url = `${this.client.options.baseURL}/projects/${this.id}`;
+        this.status = status;
+        this.guild = this.client.guilds.resolve(guild);
+        this.media = media?.map((m) => new Media(m));
+        this.title = title;
+        this.shortDescription = shortDescription;
+        this.description = description;
+        this.links = links?.map((l) => new Link(l));
+        this.date = new Date(date);
+        this.flags = flags;
+        this.ogImage = ogImage;
+
+        return resolve(this);
+      });
+    });
+  }
+
+  delete(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      Promise.resolve().then(async () => {
+        const url = format(this.client.endpoints.projects, this.id);
+        const res = await this.client.axios.delete(url).catch((e) => e);
+        if (!res?.status || !Helpers.isOk(res?.status as number)) {
+          return reject(res);
+        }
+
+        this.client.projects.cache.delete(this.id as string);
+        return resolve();
       });
     });
   }

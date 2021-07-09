@@ -1,12 +1,14 @@
 class Media {
+  id: string;
   type: string;
   src?: string;
   message?: string;
 
   constructor(config: IMedia) {
     // eslint-disable-next-line object-curly-newline
-    const { type, src, message } = config;
+    const { _id, type, src, message } = config;
 
+    this.id = _id;
     this.type = type;
     this.src = src;
     this.message = message;
@@ -19,6 +21,7 @@ class Media {
 
 export default Media;
 export interface IMedia {
+  _id: string;
   type: 'image' | 'video' | 'text';
   src?: string;
   message?: string;
