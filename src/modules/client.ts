@@ -1,12 +1,9 @@
 import axios, { AxiosInstance } from 'axios';
-import endpoints, {
-  EndpointNames,
-  EndpointOptions,
-  Endpoints,
-} from './endpoints';
+import endpoints, { EndpointNames, Endpoints } from './endpoints';
 import { EventEmitter } from 'events';
 import Helpers from '../helpers';
 import Managers from './managers';
+import Partial from '../helpers/partial';
 
 type ClientOptions = {
   baseURL?: string;
@@ -15,10 +12,10 @@ type ClientOptions = {
   cookies?: Record<string, string>;
   disableHydration?: boolean;
   fetchSubmissionsOnStart?: boolean;
-  endpoints?: EndpointOptions;
+  endpoints?: Partial<Endpoints>;
 };
 
-interface Events {
+declare interface Events {
   ready: () => void;
   error: (error: Error) => void;
 }

@@ -1,4 +1,4 @@
-import Submission, { ISubmission } from '../classes/submission';
+import Submission, { SubmissionConfig } from '../classes/submission';
 import Client from '../client';
 import Collection from '@discordjs/collection';
 import { EventEmitter } from 'events';
@@ -46,7 +46,7 @@ class SubmissionManager extends EventEmitter {
   }
 
   create(
-    submissionConfig: ISubmission | ISubmission[],
+    submissionConfig: SubmissionConfig | SubmissionConfig[],
     cache = true,
   ): Promise<Submission[]> {
     return new Promise((resolve, reject) => {
@@ -80,7 +80,7 @@ class SubmissionManager extends EventEmitter {
           return reject(res);
         }
 
-        const submissionsRes = (res.data as ISubmission[]).map(
+        const submissionsRes = (res.data as SubmissionConfig[]).map(
           (s) => new Submission(s, this.client),
         );
 

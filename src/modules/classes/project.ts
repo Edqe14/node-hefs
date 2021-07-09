@@ -1,9 +1,10 @@
-import Link, { ILink } from './link';
-import Media, { IMedia } from './media';
-import Submission, { ISubmission } from './submission';
+import Link, { LinkConfig } from './link';
+import Media, { MediaConfig } from './media';
+import Submission, { SubmissionConfig } from './submission';
 import Client from '../client';
 import Guild from './guild';
 import Helpers from '../../helpers';
+import Partial from '../../helpers/partial';
 import { format } from 'util';
 
 class Project {
@@ -22,7 +23,7 @@ class Project {
   submissions?: Submission[];
   client: Client;
 
-  constructor(config: IProject, client: Client) {
+  constructor(config: ProjectConfig, client: Client) {
     // eslint-disable-next-line object-curly-newline
     const {
       _id,
@@ -62,7 +63,7 @@ class Project {
           return reject(res);
         }
 
-        const submissions = (res.data as ISubmission[])
+        const submissions = (res.data as SubmissionConfig[])
           .filter((s) => s._id !== undefined || s._id !== null)
           .map((s) => new Submission(s, this.client));
         if (cache) {
@@ -73,7 +74,7 @@ class Project {
     });
   }
 
-  edit(projectConfig: IProject): Promise<Project> {
+  edit(projectConfig: Partial<ProjectConfig>): Promise<Project> {
     return new Promise((resolve, reject) => {
       Promise.resolve().then(async () => {
         if (!projectConfig || typeof projectConfig !== 'object') {
@@ -102,7 +103,7 @@ class Project {
           date,
           flags,
           ogImage,
-        } = res.data as IProject;
+        } = res.data as ProjectConfig;
 
         this.id = _id?.toString();
         this.url = `${this.client.options.baseURL}/projects/${this.id}`;
@@ -144,15 +145,15 @@ class Project {
 
 export default Project;
 
-export interface IProject {
+export interface ProjectConfig {
   _id?: number;
   status: 'ongoing' | 'past';
   guild: string;
-  media?: IMedia[];
+  media?: MediaConfig[];
   title: string;
   shortDescription: string;
   description: string;
-  links?: ILink[];
+  links?: LinkConfig[];
   date: Date;
   flags?: string[];
   ogImage?: string;

@@ -13,9 +13,6 @@ export type EndpointNames =
   | 'guilds'
   | 'submissions'
   | 'invite';
-export type EndpointOptions = {
-  [key in EndpointNames]?: string;
-};
 export type Endpoints = {
   [key in EndpointNames]: string;
 };

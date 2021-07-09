@@ -1,4 +1,4 @@
-import Guild, { IGuild } from '../classes/guild';
+import Guild, { GuildConfig } from '../classes/guild';
 import Client from '../client';
 import Collection from '@discordjs/collection';
 import { EventEmitter } from 'events';
@@ -67,13 +67,13 @@ class GuildManager extends EventEmitter {
         }
 
         if (id) {
-          const guild = new Guild(res.data as IGuild, this.client);
+          const guild = new Guild(res.data as GuildConfig, this.client);
 
           if (cache) this.cache.set(id, guild);
           return resolve(guild);
         }
 
-        const guilds = (res.data as IGuild[])
+        const guilds = (res.data as GuildConfig[])
           .filter((g) => g._id !== undefined || g._id !== null)
           .map((g) => new Guild(g, this.client));
         if (cache) {
@@ -84,7 +84,7 @@ class GuildManager extends EventEmitter {
     });
   }
 
-  create(guildConfig: IGuild, cache = true): Promise<Guild> {
+  create(guildConfig: GuildConfig, cache = true): Promise<Guild> {
     return new Promise((resolve, reject) => {
       Promise.resolve().then(async () => {
         if (!guildConfig || typeof guildConfig !== 'object') {
@@ -100,7 +100,7 @@ class GuildManager extends EventEmitter {
           return reject(res);
         }
 
-        const guild = new Guild(res.data as IGuild, this.client);
+        const guild = new Guild(res.data as GuildConfig, this.client);
         if (cache) this.cache.set(guild.id as string, guild);
         return resolve(guild);
       });

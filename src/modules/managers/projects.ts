@@ -1,4 +1,4 @@
-import Project, { IProject } from '../classes/project';
+import Project, { ProjectConfig } from '../classes/project';
 import Client from '../client';
 import Collection from '@discordjs/collection';
 import { EventEmitter } from 'events';
@@ -69,13 +69,13 @@ class ProjectManager extends EventEmitter {
         }
 
         if (id) {
-          const project = new Project(res.data as IProject, this.client);
+          const project = new Project(res.data as ProjectConfig, this.client);
 
           if (cache) this.cache.set(id, project);
           return resolve(project);
         }
 
-        const projects = (res.data as IProject[])
+        const projects = (res.data as ProjectConfig[])
           .filter((p) => p._id !== undefined || p._id !== null)
           .map((p) => new Project(p, this.client));
         if (cache) {
@@ -88,7 +88,7 @@ class ProjectManager extends EventEmitter {
     });
   }
 
-  create(projectConfig: IProject, cache = true): Promise<Project> {
+  create(projectConfig: ProjectConfig, cache = true): Promise<Project> {
     return new Promise((resolve, reject) => {
       Promise.resolve().then(async () => {
         if (!projectConfig || typeof projectConfig !== 'object') {
@@ -104,7 +104,7 @@ class ProjectManager extends EventEmitter {
           return reject(res);
         }
 
-        const project = new Project(res.data as IProject, this.client);
+        const project = new Project(res.data as ProjectConfig, this.client);
         if (cache) this.cache.set(project.id as string, project);
         return resolve(project);
       });

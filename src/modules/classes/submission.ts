@@ -1,5 +1,6 @@
 import Client from '../client';
 import Helpers from '../../helpers';
+import Partial from '../../helpers/partial';
 import Project from './project';
 import { format } from 'util';
 
@@ -13,7 +14,7 @@ class Submission {
   message?: string;
   client: Client;
 
-  constructor(config: ISubmission, client: Client) {
+  constructor(config: SubmissionConfig, client: Client) {
     // eslint-disable-next-line object-curly-newline
     const { _id, project, author, srcIcon, type, src, message } = config;
 
@@ -27,7 +28,7 @@ class Submission {
     this.message = message;
   }
 
-  edit(submissionConfig: ISubmission): Promise<Submission> {
+  edit(submissionConfig: Partial<SubmissionConfig>): Promise<Submission> {
     return new Promise((resolve, reject) => {
       Promise.resolve().then(async () => {
         if (!submissionConfig || typeof submissionConfig !== 'object') {
@@ -35,9 +36,9 @@ class Submission {
           return reject(error);
         }
 
-        const submissions: ISubmission[] = [
+        const submissions: SubmissionConfig[] = [
           {
-            ...submissionConfig,
+            ...(submissionConfig as SubmissionConfig),
             _id: this.id,
           },
         ];
@@ -52,7 +53,7 @@ class Submission {
 
         // eslint-disable-next-line object-curly-newline
         const { _id, project, author, srcIcon, type, src, message } =
-          res.data as ISubmission;
+          res.data as SubmissionConfig;
 
         this.id = _id as string;
         this.project = this.client.projects.resolve(
@@ -102,7 +103,7 @@ class Submission {
 }
 
 export default Submission;
-export interface ISubmission {
+export interface SubmissionConfig {
   _id?: string;
   project: number;
   author?: string;

@@ -1,5 +1,6 @@
 import Client from '../client';
 import Helpers from '../../helpers';
+import Partial from '../../helpers/partial';
 import Project from './project';
 import { format } from 'util';
 
@@ -14,7 +15,7 @@ class Guild {
   projects?: Project[];
   client: Client;
 
-  constructor(config: IGuild, client: Client) {
+  constructor(config: GuildConfig, client: Client) {
     // eslint-disable-next-line object-curly-newline
     const { _id, name, description, image, invite, debutDate, color } = config;
 
@@ -28,7 +29,7 @@ class Guild {
     this.color = color;
   }
 
-  edit(guildConfig: IGuild): Promise<Guild> {
+  edit(guildConfig: Partial<GuildConfig>): Promise<Guild> {
     return new Promise((resolve, reject) => {
       Promise.resolve().then(async () => {
         if (!guildConfig || typeof guildConfig !== 'object') {
@@ -46,7 +47,7 @@ class Guild {
 
         // eslint-disable-next-line object-curly-newline
         const { _id, name, description, image, invite, debutDate, color } =
-          res.data as IGuild;
+          res.data as GuildConfig;
         this.id = _id;
         this.name = name;
         this.description = description;
@@ -81,7 +82,7 @@ class Guild {
 }
 
 export default Guild;
-export interface IGuild {
+export interface GuildConfig {
   _id?: string;
   name: string;
   description: string;

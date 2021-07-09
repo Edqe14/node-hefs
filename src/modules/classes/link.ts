@@ -3,7 +3,7 @@ class Link {
   name: string;
   link: string;
 
-  constructor(config: ILink) {
+  constructor(config: LinkConfig) {
     const { _id, name, link } = config;
 
     this.id = _id;
@@ -17,7 +17,7 @@ class Link {
 }
 
 export default Link;
-export interface ILink {
+export interface LinkConfig {
   _id: string;
   name: string;
   link: string;

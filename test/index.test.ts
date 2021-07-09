@@ -1,6 +1,7 @@
 import Classes from '../src/modules/classes';
 import Client from '../src/';
 import dotenv from 'dotenv';
+import Project from '../src/modules/classes/project';
 dotenv.config();
 
 const client = new Client({
@@ -8,7 +9,8 @@ const client = new Client({
   // fetchSubmissionsOnStart: true,
 });
 
-const skipDescribeIfUnavailable = client.options.fetchSubmissionsOnStart && client.options.session ? describe : describe.skip;
+const skip = client.options.fetchSubmissionsOnStart && client.options.session;
+const skipDescribeIfUnavailable = skip ? describe : describe.skip;
 const skipTestIfUnavailable = client.options.session ? it : it.skip;
 
 // eslint-disable-next-line prettier/prettier
@@ -89,9 +91,54 @@ describe('client', () => {
       });
     });
 
-    // TODO: test project create
-    // TODO: test project edit
-    // TODO: test project delete
+    let proj: Project;
+    const projPromise = new Promise((resolve) => {
+      if (skip) return resolve(1);
+      skipTestIfUnavailable('should create a new project', async () => {
+        await waitReady;
+  
+        const newProj = await projects.create({
+          title: 'Test Node API',
+          status: 'ongoing',
+          guild: 'hirD8XHurcDYFoNQOFh7p',
+          shortDescription: 'Hello from Node',
+          description: '',
+          date: new Date(),
+        });
+  
+        proj = newProj;
+        resolve(newProj);
+
+        expect(newProj).toBeInstanceOf(Classes.Project);
+        expect(newProj.title).toEqual('Test Node API');
+      });
+    })
+
+    const editPromise = new Promise((resolve) => {
+      if (skip) return resolve(1);
+      skipTestIfUnavailable('should edit a project', async () => {
+        await waitReady;
+        await projPromise;
+  
+        const editedProj = await proj.edit({
+          description: 'Edited from Node!'
+        });
+  
+        expect(editedProj).toBeInstanceOf(Classes.Project);
+        expect(editedProj.description).toEqual('Edited from Node!');
+        resolve(1);
+      });
+    });
+
+    skipTestIfUnavailable('should delete a project', async () => {
+      await waitReady;
+      await projPromise;
+      await editPromise;
+
+      await proj.delete();
+
+      expect(projects.cache.has(proj.id as string)).toBe(false);
+    });
   });
 
   // Skip submissions test if fetching on start is disabled
