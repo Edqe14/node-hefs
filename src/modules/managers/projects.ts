@@ -2,12 +2,9 @@ import Project, { ProjectConfig } from '../classes/project';
 import Client from '../client';
 import Collection from '@discordjs/collection';
 import { EventEmitter } from 'events';
+import Events from '../../helpers/eventTypes';
 import Helpers from '../../helpers';
 import { format } from 'util';
-
-interface Events {
-  ready: () => void;
-}
 
 declare interface ProjectManager {
   on: <U extends keyof Events>(event: U, listener: Events[U]) => this;
@@ -18,7 +15,7 @@ declare interface ProjectManager {
   ) => boolean;
 }
 
-type ProjectResolvable = string | number | Project;
+export type ProjectResolvable = string | number | Project;
 
 class ProjectManager extends EventEmitter {
   client: Client;

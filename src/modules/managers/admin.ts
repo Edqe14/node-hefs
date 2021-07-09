@@ -1,15 +1,12 @@
-import Setting, { ISetting } from '../classes/setting';
+import Setting, { SettingConfig } from '../classes/setting';
 import Client from '../client';
 import Collection from '@discordjs/collection';
 import { EventEmitter } from 'events';
+import Events from '../../helpers/eventTypes';
 import Helpers from '../../helpers';
 
-type PropertyType = 'whitelist';
-interface Events {
-  ready: () => void;
-}
-
-type SettingResolvable = string | Setting;
+export type PropertyType = 'whitelist';
+export type SettingResolvable = string | Setting;
 
 declare interface AdminManager {
   on: <U extends keyof Events>(event: U, listener: Events[U]) => this;
@@ -84,7 +81,7 @@ class AdminManager extends EventEmitter {
           return reject(error);
         }
 
-        const guild = new Setting(res.data as ISetting, this.client);
+        const guild = new Setting(res.data as SettingConfig, this.client);
 
         if (cache) this.cache.set(property, guild);
         return resolve(guild);

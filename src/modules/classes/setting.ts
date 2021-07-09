@@ -5,7 +5,7 @@ class Setting {
   value: unknown | string[];
   client: Client;
 
-  constructor(config: ISetting, client: Client) {
+  constructor(config: SettingConfig, client: Client) {
     const { _id, value } = config;
 
     this.client = client;
@@ -15,7 +15,7 @@ class Setting {
 }
 
 export default Setting;
-export interface ISetting {
+export interface SettingConfig {
   _id: string;
   value: unknown;
 }

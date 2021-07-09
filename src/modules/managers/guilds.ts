@@ -2,12 +2,9 @@ import Guild, { GuildConfig } from '../classes/guild';
 import Client from '../client';
 import Collection from '@discordjs/collection';
 import { EventEmitter } from 'events';
+import Events from '../../helpers/eventTypes';
 import Helpers from '../../helpers';
 import { format } from 'util';
-
-interface Events {
-  ready: () => void;
-}
 
 declare interface GuildManager {
   on: <U extends keyof Events>(event: U, listener: Events[U]) => this;
@@ -18,7 +15,7 @@ declare interface GuildManager {
   ) => boolean;
 }
 
-type GuildResolvable = string | Guild;
+export type GuildResolvable = string | Guild;
 
 class GuildManager extends EventEmitter {
   client: Client;
