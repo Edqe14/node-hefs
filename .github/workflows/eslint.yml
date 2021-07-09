@@ -22,5 +22,5 @@ jobs:
             ${{ runner.OS }}-
       - name: Install Node Dependencies
         run: npm ci
-      - name: Save Code Linting Report JSON
+      - name: Run ESLint
         run: npm run lint
