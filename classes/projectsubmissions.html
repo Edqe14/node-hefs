@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Submission | hefs</title>
+	<title>ProjectSubmissions | hefs</title>
 	<meta name="description" content="Documentation for hefs">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,10 +55,10 @@
 					<a href="../modules.html">hefs</a>
 				</li>
 				<li>
-					<a href="submission.html">Submission</a>
+					<a href="projectsubmissions.html">ProjectSubmissions</a>
 				</li>
 			</ul>
-			<h1>Class Submission</h1>
+			<h1>Class ProjectSubmissions</h1>
 		</div>
 	</div>
 </header>
@@ -69,7 +69,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Submission</span>
+						<span class="target">ProjectSubmissions</span>
 					</li>
 				</ul>
 			</section>
@@ -80,28 +80,23 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="submission.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="projectsubmissions.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="submission.html#author" class="tsd-kind-icon">author</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="submission.html#client" class="tsd-kind-icon">client</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="submission.html#id" class="tsd-kind-icon">id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="submission.html#message" class="tsd-kind-icon">message</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="submission.html#project" class="tsd-kind-icon">project</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="submission.html#src" class="tsd-kind-icon">src</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="submission.html#srcicon" class="tsd-kind-icon">src<wbr>Icon</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="submission.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="projectsubmissions.html#cache" class="tsd-kind-icon">cache</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="projectsubmissions.html#client" class="tsd-kind-icon">client</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="projectsubmissions.html#guild" class="tsd-kind-icon">guild</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="submission.html#delete" class="tsd-kind-icon">delete</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="submission.html#edit" class="tsd-kind-icon">edit</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="submission.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="projectsubmissions.html#create" class="tsd-kind-icon">create</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="projectsubmissions.html#resolve" class="tsd-kind-icon">resolve</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="projectsubmissions.html#resolveid" class="tsd-kind-icon">resolveID</a></li>
 							</ul>
 						</section>
 					</div>
@@ -113,25 +108,28 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Submission<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/submissionconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">SubmissionConfig</a>, client<span class="tsd-signature-symbol">: </span><a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="submission.html" class="tsd-signature-type" data-tsd-kind="Class">Submission</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Project<wbr>Submissions<span class="tsd-signature-symbol">(</span>client<span class="tsd-signature-symbol">: </span><a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a>, guild<span class="tsd-signature-symbol">: </span><a href="guild.html" class="tsd-signature-type" data-tsd-kind="Class">Guild</a>, entries<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="submission.html" class="tsd-signature-type" data-tsd-kind="Class">Submission</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="projectsubmissions.html" class="tsd-signature-type" data-tsd-kind="Class">ProjectSubmissions</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/submission.ts#L14">src/modules/classes/submission.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/collections/projectSubmissions.ts#L17">src/modules/collections/projectSubmissions.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>config: <a href="../interfaces/submissionconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">SubmissionConfig</a></h5>
-								</li>
-								<li>
 									<h5>client: <a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></h5>
 								</li>
+								<li>
+									<h5>guild: <a href="guild.html" class="tsd-signature-type" data-tsd-kind="Class">Guild</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> entries: <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="submission.html" class="tsd-signature-type" data-tsd-kind="Class">Submission</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="submission.html" class="tsd-signature-type" data-tsd-kind="Class">Submission</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="projectsubmissions.html" class="tsd-signature-type" data-tsd-kind="Class">ProjectSubmissions</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -139,12 +137,12 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="author" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> author</h3>
-					<div class="tsd-signature tsd-kind-icon">author<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="cache" class="tsd-anchor"></a>
+					<h3>cache</h3>
+					<div class="tsd-signature tsd-kind-icon">cache<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Collection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="submission.html" class="tsd-signature-type" data-tsd-kind="Class">Submission</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/submission.ts#L9">src/modules/classes/submission.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/collections/projectSubmissions.ts#L17">src/modules/collections/projectSubmissions.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -154,67 +152,17 @@
 					<div class="tsd-signature tsd-kind-icon">client<span class="tsd-signature-symbol">:</span> <a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/submission.ts#L14">src/modules/classes/submission.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/collections/projectSubmissions.ts#L15">src/modules/collections/projectSubmissions.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="id" class="tsd-anchor"></a>
-					<h3>id</h3>
-					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="guild" class="tsd-anchor"></a>
+					<h3>guild</h3>
+					<div class="tsd-signature tsd-kind-icon">guild<span class="tsd-signature-symbol">:</span> <a href="guild.html" class="tsd-signature-type" data-tsd-kind="Class">Guild</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/submission.ts#L7">src/modules/classes/submission.ts:7</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="message" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> message</h3>
-					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/submission.ts#L13">src/modules/classes/submission.ts:13</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="project" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> project</h3>
-					<div class="tsd-signature tsd-kind-icon">project<span class="tsd-signature-symbol">:</span> <a href="project.html" class="tsd-signature-type" data-tsd-kind="Class">Project</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/submission.ts#L8">src/modules/classes/submission.ts:8</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="src" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> src</h3>
-					<div class="tsd-signature tsd-kind-icon">src<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/submission.ts#L11">src/modules/classes/submission.ts:11</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="srcicon" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> src<wbr>Icon</h3>
-					<div class="tsd-signature tsd-kind-icon">src<wbr>Icon<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/submission.ts#L10">src/modules/classes/submission.ts:10</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="type" class="tsd-anchor"></a>
-					<h3>type</h3>
-					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/submission.ts#L12">src/modules/classes/submission.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/collections/projectSubmissions.ts#L16">src/modules/collections/projectSubmissions.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -222,73 +170,104 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="delete" class="tsd-anchor"></a>
-					<h3>delete</h3>
+					<a name="create" class="tsd-anchor"></a>
+					<h3>create</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span>submissionConfig<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/submissionconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">SubmissionConfig</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;_id&quot;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/submissionconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">SubmissionConfig</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">OmitConfig</span><span class="tsd-signature-symbol">&gt;</span>, cache<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="submission.html" class="tsd-signature-type" data-tsd-kind="Class">Submission</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/submission.ts#L80">src/modules/classes/submission.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/collections/projectSubmissions.ts#L57">src/modules/collections/projectSubmissions.ts:57</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Delete the submission.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="edit" class="tsd-anchor"></a>
-					<h3>edit</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">edit<span class="tsd-signature-symbol">(</span>submissionConfig<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/submissionconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">SubmissionConfig</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="submission.html" class="tsd-signature-type" data-tsd-kind="Class">Submission</a><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/submission.ts#L35">src/modules/classes/submission.ts:35</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Edit the submission metadata.</p>
+									<p>Create a new submission(s).</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>submissionConfig: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/submissionconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">SubmissionConfig</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>submissionConfig: <span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/submissionconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">SubmissionConfig</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;_id&quot;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/submissionconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">SubmissionConfig</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">OmitConfig</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>New submission metadata.</p>
+										<p>Submission(s) metadata.</p>
+									</div>
+								</li>
+								<li>
+									<h5>cache: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Caches parsed object from response. Default <code>true</code>.</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="submission.html" class="tsd-signature-type" data-tsd-kind="Class">Submission</a><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A promise that resolves to a Submission object.</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="submission.html" class="tsd-signature-type" data-tsd-kind="Class">Submission</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A promise that resolves to an Array of submission objects.</p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="tostring" class="tsd-anchor"></a>
-					<h3>to<wbr>String</h3>
+					<a name="resolve" class="tsd-anchor"></a>
+					<h3>resolve</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">resolve<span class="tsd-signature-symbol">(</span>submission<span class="tsd-signature-symbol">: </span><a href="../modules.html#submissionresolvable" class="tsd-signature-type" data-tsd-kind="Type alias">SubmissionResolvable</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="submission.html" class="tsd-signature-type" data-tsd-kind="Class">Submission</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/submission.ts#L99">src/modules/classes/submission.ts:99</a></li>
+									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/collections/projectSubmissions.ts#L34">src/modules/collections/projectSubmissions.ts:34</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Resolve a resolvable to a matching object.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>submission: <a href="../modules.html#submissionresolvable" class="tsd-signature-type" data-tsd-kind="Type alias">SubmissionResolvable</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Submission resolvable to resolve.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="submission.html" class="tsd-signature-type" data-tsd-kind="Class">Submission</a></h4>
+							<p>Submission object or <code>undefined</code>.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="resolveid" class="tsd-anchor"></a>
+					<h3>resolveID</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">resolveID<span class="tsd-signature-symbol">(</span>submission<span class="tsd-signature-symbol">: </span><a href="../modules.html#submissionresolvable" class="tsd-signature-type" data-tsd-kind="Type alias">SubmissionResolvable</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/collections/projectSubmissions.ts#L44">src/modules/collections/projectSubmissions.ts:44</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Resolve a resolvable to a matching object ID.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>submission: <a href="../modules.html#submissionresolvable" class="tsd-signature-type" data-tsd-kind="Type alias">SubmissionResolvable</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Submission resolvable to resolve.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h4>
+							<p>Submission ID or <code>undefined</code>.</p>
 						</li>
 					</ul>
 				</section>
@@ -331,57 +310,42 @@
 					<li class=" tsd-kind-class">
 						<a href="projectmanager.html" class="tsd-kind-icon">Project<wbr>Manager</a>
 					</li>
-					<li class=" tsd-kind-class">
-						<a href="projectsubmissions.html" class="tsd-kind-icon">Project<wbr>Submissions</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="setting.html" class="tsd-kind-icon">Setting</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="submission.html" class="tsd-kind-icon">Submission</a>
+						<a href="projectsubmissions.html" class="tsd-kind-icon">Project<wbr>Submissions</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="submission.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="projectsubmissions.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="submission.html#author" class="tsd-kind-icon">author</a>
+								<a href="projectsubmissions.html#cache" class="tsd-kind-icon">cache</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="submission.html#client" class="tsd-kind-icon">client</a>
+								<a href="projectsubmissions.html#client" class="tsd-kind-icon">client</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="submission.html#id" class="tsd-kind-icon">id</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="submission.html#message" class="tsd-kind-icon">message</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="submission.html#project" class="tsd-kind-icon">project</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="submission.html#src" class="tsd-kind-icon">src</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="submission.html#srcicon" class="tsd-kind-icon">src<wbr>Icon</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="submission.html#type" class="tsd-kind-icon">type</a>
+								<a href="projectsubmissions.html#guild" class="tsd-kind-icon">guild</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="submission.html#delete" class="tsd-kind-icon">delete</a>
+								<a href="projectsubmissions.html#create" class="tsd-kind-icon">create</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="submission.html#edit" class="tsd-kind-icon">edit</a>
+								<a href="projectsubmissions.html#resolve" class="tsd-kind-icon">resolve</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="submission.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
+								<a href="projectsubmissions.html#resolveid" class="tsd-kind-icon">resolveID</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-class">
+						<a href="setting.html" class="tsd-kind-icon">Setting</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="submission.html" class="tsd-kind-icon">Submission</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="submissionmanager.html" class="tsd-kind-icon">Submission<wbr>Manager</a>
 					</li>

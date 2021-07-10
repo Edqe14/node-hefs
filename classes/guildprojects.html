@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Guild | hefs</title>
+	<title>GuildProjects | hefs</title>
 	<meta name="description" content="Documentation for hefs">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,10 +55,10 @@
 					<a href="../modules.html">hefs</a>
 				</li>
 				<li>
-					<a href="guild.html">Guild</a>
+					<a href="guildprojects.html">GuildProjects</a>
 				</li>
 			</ul>
-			<h1>Class Guild</h1>
+			<h1>Class GuildProjects</h1>
 		</div>
 	</div>
 </header>
@@ -69,7 +69,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Guild</span>
+						<span class="target">GuildProjects</span>
 					</li>
 				</ul>
 			</section>
@@ -80,29 +80,23 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="guild.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="guildprojects.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guild.html#client" class="tsd-kind-icon">client</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guild.html#color" class="tsd-kind-icon">color</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guild.html#debutdate" class="tsd-kind-icon">debut<wbr>Date</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guild.html#description" class="tsd-kind-icon">description</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guild.html#id" class="tsd-kind-icon">id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guild.html#image" class="tsd-kind-icon">image</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guild.html#invite" class="tsd-kind-icon">invite</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guild.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guild.html#projects" class="tsd-kind-icon">projects</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guildprojects.html#cache" class="tsd-kind-icon">cache</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guildprojects.html#client" class="tsd-kind-icon">client</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="guildprojects.html#guild" class="tsd-kind-icon">guild</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="guild.html#delete" class="tsd-kind-icon">delete</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="guild.html#edit" class="tsd-kind-icon">edit</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="guild.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="guildprojects.html#create" class="tsd-kind-icon">create</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="guildprojects.html#resolve" class="tsd-kind-icon">resolve</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="guildprojects.html#resolveid" class="tsd-kind-icon">resolveID</a></li>
 							</ul>
 						</section>
 					</div>
@@ -114,25 +108,28 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Guild<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/guildconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">GuildConfig</a>, client<span class="tsd-signature-symbol">: </span><a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="guild.html" class="tsd-signature-type" data-tsd-kind="Class">Guild</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Guild<wbr>Projects<span class="tsd-signature-symbol">(</span>client<span class="tsd-signature-symbol">: </span><a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a>, guild<span class="tsd-signature-symbol">: </span><a href="guild.html" class="tsd-signature-type" data-tsd-kind="Class">Guild</a>, entries<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="project.html" class="tsd-signature-type" data-tsd-kind="Class">Project</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="guildprojects.html" class="tsd-signature-type" data-tsd-kind="Class">GuildProjects</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/guild.ts#L15">src/modules/classes/guild.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/collections/guildProjects.ts#L15">src/modules/collections/guildProjects.ts:15</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>config: <a href="../interfaces/guildconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">GuildConfig</a></h5>
-								</li>
-								<li>
 									<h5>client: <a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></h5>
 								</li>
+								<li>
+									<h5>guild: <a href="guild.html" class="tsd-signature-type" data-tsd-kind="Class">Guild</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> entries: <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-symbol">readonly </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="project.html" class="tsd-signature-type" data-tsd-kind="Class">Project</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="guild.html" class="tsd-signature-type" data-tsd-kind="Class">Guild</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="guildprojects.html" class="tsd-signature-type" data-tsd-kind="Class">GuildProjects</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -140,92 +137,32 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="cache" class="tsd-anchor"></a>
+					<h3>cache</h3>
+					<div class="tsd-signature tsd-kind-icon">cache<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Collection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="project.html" class="tsd-signature-type" data-tsd-kind="Class">Project</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/collections/guildProjects.ts#L15">src/modules/collections/guildProjects.ts:15</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="client" class="tsd-anchor"></a>
 					<h3>client</h3>
 					<div class="tsd-signature tsd-kind-icon">client<span class="tsd-signature-symbol">:</span> <a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/guild.ts#L15">src/modules/classes/guild.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/collections/guildProjects.ts#L13">src/modules/collections/guildProjects.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="color" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> color</h3>
-					<div class="tsd-signature tsd-kind-icon">color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="guild" class="tsd-anchor"></a>
+					<h3>guild</h3>
+					<div class="tsd-signature tsd-kind-icon">guild<span class="tsd-signature-symbol">:</span> <a href="guild.html" class="tsd-signature-type" data-tsd-kind="Class">Guild</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/guild.ts#L13">src/modules/classes/guild.ts:13</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="debutdate" class="tsd-anchor"></a>
-					<h3>debut<wbr>Date</h3>
-					<div class="tsd-signature tsd-kind-icon">debut<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/guild.ts#L12">src/modules/classes/guild.ts:12</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="description" class="tsd-anchor"></a>
-					<h3>description</h3>
-					<div class="tsd-signature tsd-kind-icon">description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/guild.ts#L9">src/modules/classes/guild.ts:9</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="id" class="tsd-anchor"></a>
-					<h3>id</h3>
-					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/guild.ts#L7">src/modules/classes/guild.ts:7</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="image" class="tsd-anchor"></a>
-					<h3>image</h3>
-					<div class="tsd-signature tsd-kind-icon">image<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/guild.ts#L10">src/modules/classes/guild.ts:10</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="invite" class="tsd-anchor"></a>
-					<h3>invite</h3>
-					<div class="tsd-signature tsd-kind-icon">invite<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/guild.ts#L11">src/modules/classes/guild.ts:11</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="name" class="tsd-anchor"></a>
-					<h3>name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/guild.ts#L8">src/modules/classes/guild.ts:8</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="projects" class="tsd-anchor"></a>
-					<h3>projects</h3>
-					<div class="tsd-signature tsd-kind-icon">projects<span class="tsd-signature-symbol">:</span> <a href="guildprojects.html" class="tsd-signature-type" data-tsd-kind="Class">GuildProjects</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/guild.ts#L14">src/modules/classes/guild.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/collections/guildProjects.ts#L14">src/modules/collections/guildProjects.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -233,73 +170,104 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="delete" class="tsd-anchor"></a>
-					<h3>delete</h3>
+					<a name="create" class="tsd-anchor"></a>
+					<h3>create</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span>projectConfig<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/projectconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">ProjectConfig</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">OmitConfig</span><span class="tsd-signature-symbol">&gt;</span>, cache<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="project.html" class="tsd-signature-type" data-tsd-kind="Class">Project</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/guild.ts#L72">src/modules/classes/guild.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/collections/guildProjects.ts#L55">src/modules/collections/guildProjects.ts:55</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Delete the guild.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="edit" class="tsd-anchor"></a>
-					<h3>edit</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">edit<span class="tsd-signature-symbol">(</span>guildConfig<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/guildconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">GuildConfig</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="guild.html" class="tsd-signature-type" data-tsd-kind="Class">Guild</a><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/guild.ts#L37">src/modules/classes/guild.ts:37</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Edit the guild metadata.</p>
+									<p>Create a new project.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>guildConfig: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/guildconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">GuildConfig</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>projectConfig: <span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/projectconfig.html" class="tsd-signature-type" data-tsd-kind="Interface">ProjectConfig</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">OmitConfig</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>New guild metadata.</p>
+										<p>Project metadata.</p>
+									</div>
+								</li>
+								<li>
+									<h5>cache: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Caches parsed object from response. Default <code>true</code>.</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="guild.html" class="tsd-signature-type" data-tsd-kind="Class">Guild</a><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A promise that resolves to a Guild object.</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="project.html" class="tsd-signature-type" data-tsd-kind="Class">Project</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A promise that resolves to a Project object.</p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="tostring" class="tsd-anchor"></a>
-					<h3>to<wbr>String</h3>
+					<a name="resolve" class="tsd-anchor"></a>
+					<h3>resolve</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">resolve<span class="tsd-signature-symbol">(</span>project<span class="tsd-signature-symbol">: </span><a href="../modules.html#projectresolvable" class="tsd-signature-type" data-tsd-kind="Type alias">ProjectResolvable</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="project.html" class="tsd-signature-type" data-tsd-kind="Class">Project</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/classes/guild.ts#L87">src/modules/classes/guild.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/collections/guildProjects.ts#L32">src/modules/collections/guildProjects.ts:32</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Resolve a resolvable to a matching object.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>project: <a href="../modules.html#projectresolvable" class="tsd-signature-type" data-tsd-kind="Type alias">ProjectResolvable</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Project resolvable to resolve.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="project.html" class="tsd-signature-type" data-tsd-kind="Class">Project</a></h4>
+							<p>Project object or <code>undefined</code>.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="resolveid" class="tsd-anchor"></a>
+					<h3>resolveID</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">resolveID<span class="tsd-signature-symbol">(</span>project<span class="tsd-signature-symbol">: </span><a href="../modules.html#projectresolvable" class="tsd-signature-type" data-tsd-kind="Type alias">ProjectResolvable</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/collections/guildProjects.ts#L42">src/modules/collections/guildProjects.ts:42</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Resolve a resolvable to a matching object ID.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>project: <a href="../modules.html#projectresolvable" class="tsd-signature-type" data-tsd-kind="Type alias">ProjectResolvable</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Project resolvable to resolve.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h4>
+							<p>Project ID or <code>undefined</code>.</p>
 						</li>
 					</ul>
 				</section>
@@ -321,60 +289,42 @@
 					<li class=" tsd-kind-class">
 						<a href="adminmanager.html" class="tsd-kind-icon">Admin<wbr>Manager</a>
 					</li>
+					<li class=" tsd-kind-class">
+						<a href="guild.html" class="tsd-kind-icon">Guild</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="guildmanager.html" class="tsd-kind-icon">Guild<wbr>Manager</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="guild.html" class="tsd-kind-icon">Guild</a>
+						<a href="guildprojects.html" class="tsd-kind-icon">Guild<wbr>Projects</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="guild.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="guildprojects.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="guild.html#client" class="tsd-kind-icon">client</a>
+								<a href="guildprojects.html#cache" class="tsd-kind-icon">cache</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="guild.html#color" class="tsd-kind-icon">color</a>
+								<a href="guildprojects.html#client" class="tsd-kind-icon">client</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="guild.html#debutdate" class="tsd-kind-icon">debut<wbr>Date</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="guild.html#description" class="tsd-kind-icon">description</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="guild.html#id" class="tsd-kind-icon">id</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="guild.html#image" class="tsd-kind-icon">image</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="guild.html#invite" class="tsd-kind-icon">invite</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="guild.html#name" class="tsd-kind-icon">name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="guild.html#projects" class="tsd-kind-icon">projects</a>
+								<a href="guildprojects.html#guild" class="tsd-kind-icon">guild</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="guild.html#delete" class="tsd-kind-icon">delete</a>
+								<a href="guildprojects.html#create" class="tsd-kind-icon">create</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="guild.html#edit" class="tsd-kind-icon">edit</a>
+								<a href="guildprojects.html#resolve" class="tsd-kind-icon">resolve</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="guild.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
+								<a href="guildprojects.html#resolveid" class="tsd-kind-icon">resolveID</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class">
-						<a href="guildmanager.html" class="tsd-kind-icon">Guild<wbr>Manager</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="guildprojects.html" class="tsd-kind-icon">Guild<wbr>Projects</a>
-					</li>
 					<li class=" tsd-kind-class">
 						<a href="link.html" class="tsd-kind-icon">Link</a>
 					</li>

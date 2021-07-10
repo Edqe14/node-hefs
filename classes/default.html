@@ -68,15 +68,19 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Main client class</p>
+						<p>Main client class.</p>
 					</div>
-					<pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = {</span>
+					<dl class="tsd-comment-tags">
+						<dt>example</dt>
+						<dd><pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = {</span>
 <span style="color: #000000">  </span><span style="color: #001080">session:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;copySessionTokenFromCookies&#039;</span><span style="color: #000000">,</span>
 <span style="color: #000000">  </span><span style="color: #001080">fetchSubmissionsOnStart:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">, </span><span style="color: #008000">// Fetch and cache all submissions when creating new client. Default: false</span>
 <span style="color: #000000">}</span>
 
 <span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Client</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
 </code></pre>
+						</dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -105,6 +109,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="default.html#_ready" class="tsd-kind-icon">_ready</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="default.html#admin" class="tsd-kind-icon">admin</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="default.html#axios" class="tsd-kind-icon">axios</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="default.html#emit" class="tsd-kind-icon">emit</a></li>
@@ -143,6 +148,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="default.html#removelistener" class="tsd-kind-icon">remove<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="default.html#setendpoint" class="tsd-kind-icon">set<wbr>Endpoint</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="default.html#setmaxlisteners" class="tsd-kind-icon">set<wbr>Max<wbr>Listeners</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="default.html#waitallready" class="tsd-kind-icon">wait<wbr>All<wbr>Ready</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="default.html#geteventlistener" class="tsd-kind-icon">get<wbr>Event<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="default.html#listenercount-1" class="tsd-kind-icon">listener<wbr>Count</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="default.html#on-1" class="tsd-kind-icon">on</a></li>
@@ -164,7 +170,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f4508bf/src/modules/client.ts#L49">src/modules/client.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/client.ts#L50">src/modules/client.ts:50</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -180,13 +186,23 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_ready" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _ready</h3>
+					<div class="tsd-signature tsd-kind-icon">_ready<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/client.ts#L50">src/modules/client.ts:50</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="admin" class="tsd-anchor"></a>
 					<h3>admin</h3>
 					<div class="tsd-signature tsd-kind-icon">admin<span class="tsd-signature-symbol">:</span> <a href="adminmanager.html" class="tsd-signature-type" data-tsd-kind="Class">AdminManager</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f4508bf/src/modules/client.ts#L47">src/modules/client.ts:47</a></li>
+							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/client.ts#L48">src/modules/client.ts:48</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -196,17 +212,17 @@
 					<div class="tsd-signature tsd-kind-icon">axios<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">AxiosInstance</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f4508bf/src/modules/client.ts#L41">src/modules/client.ts:41</a></li>
+							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/client.ts#L42">src/modules/client.ts:42</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="emit" class="tsd-anchor"></a>
 					<h3>emit</h3>
-					<div class="tsd-signature tsd-kind-icon">emit<span class="tsd-signature-symbol">:</span> &lt;U&gt;<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span>, <span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Parameters</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">eventTypes</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></div>
+					<div class="tsd-signature tsd-kind-icon">emit<span class="tsd-signature-symbol">:</span> &lt;U&gt;<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span>, <span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Parameters</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">EventTypes</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f4508bf/src/modules/client.ts#L22">src/modules/client.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/client.ts#L22">src/modules/client.ts:22</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -214,14 +230,14 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-signature">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class tsd-has-type-parameter">
-									<li class="tsd-signature tsd-kind-icon">&lt;U&gt;<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span>, <span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Parameters</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">eventTypes</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+									<li class="tsd-signature tsd-kind-icon">&lt;U&gt;<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span>, <span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Parameters</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">EventTypes</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<h4 class="tsd-type-parameters-title">Type parameters</h4>
 										<ul class="tsd-type-parameters">
 											<li>
-												<h4>U<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">eventTypes</a></h4>
+												<h4>U<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">EventTypes</a></h4>
 											</li>
 										</ul>
 										<h4 class="tsd-parameters-title">Parameters</h4>
@@ -230,7 +246,7 @@
 												<h5>event: <span class="tsd-signature-type">U</span></h5>
 											</li>
 											<li>
-												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">Parameters</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">eventTypes</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h5>
+												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">Parameters</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">EventTypes</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h5>
 											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -246,7 +262,7 @@
 					<div class="tsd-signature tsd-kind-icon">endpoints<span class="tsd-signature-symbol">:</span> <a href="../modules.html#endpoints" class="tsd-signature-type" data-tsd-kind="Type alias">Endpoints</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f4508bf/src/modules/client.ts#L43">src/modules/client.ts:43</a></li>
+							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/client.ts#L44">src/modules/client.ts:44</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -256,17 +272,17 @@
 					<div class="tsd-signature tsd-kind-icon">guilds<span class="tsd-signature-symbol">:</span> <a href="guildmanager.html" class="tsd-signature-type" data-tsd-kind="Class">GuildManager</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f4508bf/src/modules/client.ts#L44">src/modules/client.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/client.ts#L45">src/modules/client.ts:45</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="on" class="tsd-anchor"></a>
 					<h3>on</h3>
-					<div class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">:</span> &lt;U&gt;<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span>, listener<span class="tsd-signature-symbol">: </span><a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">eventTypes</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></div>
+					<div class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">:</span> &lt;U&gt;<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span>, listener<span class="tsd-signature-symbol">: </span><a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">EventTypes</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f4508bf/src/modules/client.ts#L20">src/modules/client.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/client.ts#L20">src/modules/client.ts:20</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -274,14 +290,14 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-signature">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class tsd-has-type-parameter">
-									<li class="tsd-signature tsd-kind-icon">&lt;U&gt;<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span>, listener<span class="tsd-signature-symbol">: </span><a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">eventTypes</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></li>
+									<li class="tsd-signature tsd-kind-icon">&lt;U&gt;<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span>, listener<span class="tsd-signature-symbol">: </span><a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">EventTypes</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<h4 class="tsd-type-parameters-title">Type parameters</h4>
 										<ul class="tsd-type-parameters">
 											<li>
-												<h4>U<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">eventTypes</a></h4>
+												<h4>U<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">EventTypes</a></h4>
 											</li>
 										</ul>
 										<h4 class="tsd-parameters-title">Parameters</h4>
@@ -290,7 +306,7 @@
 												<h5>event: <span class="tsd-signature-type">U</span></h5>
 											</li>
 											<li>
-												<h5>listener: <a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">eventTypes</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">]</span></h5>
+												<h5>listener: <a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">EventTypes</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">]</span></h5>
 											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></h4>
@@ -303,10 +319,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="once" class="tsd-anchor"></a>
 					<h3>once</h3>
-					<div class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">:</span> &lt;U&gt;<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span>, listener<span class="tsd-signature-symbol">: </span><a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">eventTypes</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></div>
+					<div class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">:</span> &lt;U&gt;<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span>, listener<span class="tsd-signature-symbol">: </span><a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">EventTypes</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f4508bf/src/modules/client.ts#L21">src/modules/client.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/client.ts#L21">src/modules/client.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -314,14 +330,14 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-signature">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class tsd-has-type-parameter">
-									<li class="tsd-signature tsd-kind-icon">&lt;U&gt;<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span>, listener<span class="tsd-signature-symbol">: </span><a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">eventTypes</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></li>
+									<li class="tsd-signature tsd-kind-icon">&lt;U&gt;<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span>, listener<span class="tsd-signature-symbol">: </span><a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">EventTypes</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<h4 class="tsd-type-parameters-title">Type parameters</h4>
 										<ul class="tsd-type-parameters">
 											<li>
-												<h4>U<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">eventTypes</a></h4>
+												<h4>U<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">EventTypes</a></h4>
 											</li>
 										</ul>
 										<h4 class="tsd-parameters-title">Parameters</h4>
@@ -330,7 +346,7 @@
 												<h5>event: <span class="tsd-signature-type">U</span></h5>
 											</li>
 											<li>
-												<h5>listener: <a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">eventTypes</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">]</span></h5>
+												<h5>listener: <a href="../interfaces/eventtypes.html" class="tsd-signature-type" data-tsd-kind="Interface">EventTypes</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">]</span></h5>
 											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></h4>
@@ -346,7 +362,7 @@
 					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <a href="../modules.html#clientoptions" class="tsd-signature-type" data-tsd-kind="Type alias">ClientOptions</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f4508bf/src/modules/client.ts#L42">src/modules/client.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/client.ts#L43">src/modules/client.ts:43</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -356,7 +372,7 @@
 					<div class="tsd-signature tsd-kind-icon">projects<span class="tsd-signature-symbol">:</span> <a href="projectmanager.html" class="tsd-signature-type" data-tsd-kind="Class">ProjectManager</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f4508bf/src/modules/client.ts#L45">src/modules/client.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/client.ts#L46">src/modules/client.ts:46</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -366,7 +382,7 @@
 					<div class="tsd-signature tsd-kind-icon">submissions<span class="tsd-signature-symbol">:</span> <a href="submissionmanager.html" class="tsd-signature-type" data-tsd-kind="Class">SubmissionManager</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f4508bf/src/modules/client.ts#L46">src/modules/client.ts:46</a></li>
+							<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/client.ts#L47">src/modules/client.ts:47</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -438,9 +454,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f4508bf/src/modules/client.ts#L143">src/modules/client.ts:143</a></li>
+									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/client.ts#L156">src/modules/client.ts:156</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>A boolean indicating whether client is ready.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
@@ -804,7 +825,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f4508bf/src/modules/client.ts#L132">src/modules/client.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/client.ts#L142">src/modules/client.ts:142</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -851,6 +872,33 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="waitallready" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> wait<wbr>All<wbr>Ready</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">wait<wbr>All<wbr>Ready<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Edqe14/node-hefs/blob/f6d944a/src/modules/client.ts#L101">src/modules/client.ts:101</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Initial code to make sure everything is ready.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>fires</dt>
+									<dd><p>Client#ready</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1022,6 +1070,9 @@
 						<a href="guildmanager.html" class="tsd-kind-icon">Guild<wbr>Manager</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="guildprojects.html" class="tsd-kind-icon">Guild<wbr>Projects</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="link.html" class="tsd-kind-icon">Link</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -1032,6 +1083,9 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="projectmanager.html" class="tsd-kind-icon">Project<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="projectsubmissions.html" class="tsd-kind-icon">Project<wbr>Submissions</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="setting.html" class="tsd-kind-icon">Setting</a>
@@ -1049,6 +1103,9 @@
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="default.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="default.html#_ready" class="tsd-kind-icon">_ready</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="default.html#admin" class="tsd-kind-icon">admin</a>
@@ -1134,6 +1191,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
 								<a href="default.html#setmaxlisteners" class="tsd-kind-icon">set<wbr>Max<wbr>Listeners</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="default.html#waitallready" class="tsd-kind-icon">wait<wbr>All<wbr>Ready</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
 								<a href="default.html#geteventlistener" class="tsd-kind-icon">get<wbr>Event<wbr>Listener</a>
 							</li>
@@ -1150,6 +1210,9 @@
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/eventtypes.html" class="tsd-kind-icon">Event<wbr>Types</a>
+					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/guildconfig.html" class="tsd-kind-icon">Guild<wbr>Config</a>
 					</li>
@@ -1168,9 +1231,6 @@
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/submissionconfig.html" class="tsd-kind-icon">Submission<wbr>Config</a>
 					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/eventtypes.html" class="tsd-kind-icon">event<wbr>Types</a>
-					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../modules.html#clientoptions" class="tsd-kind-icon">Client<wbr>Options</a>
 					</li>
@@ -1182,9 +1242,6 @@
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../modules.html#guildresolvable" class="tsd-kind-icon">Guild<wbr>Resolvable</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="../modules.html#partial" class="tsd-kind-icon">Partial</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../modules.html#projectresolvable" class="tsd-kind-icon">Project<wbr>Resolvable</a>
@@ -1208,6 +1265,9 @@
 						<a href="../modules.html#managers" class="tsd-kind-icon">Managers</a>
 					</li>
 					<li class=" tsd-kind-variable">
+						<a href="../modules.html#collections" class="tsd-kind-icon">Collections</a>
+					</li>
+					<li class=" tsd-kind-variable">
 						<a href="../modules.html#endpointdefaults" class="tsd-kind-icon">Endpoint<wbr>Defaults</a>
 					</li>
 					<li class=" tsd-kind-function">
@@ -1229,6 +1289,10 @@
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>

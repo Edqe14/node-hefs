@@ -58,10 +58,45 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<a href="#hello-world" id="hello-world" style="color: inherit; text-decoration: none;">
-					<h1>Hello world</h1>
+				<a href="#node-hefs" id="node-hefs" style="color: inherit; text-decoration: none;">
+					<h1>node-hefs</h1>
 				</a>
-				<p>HEFS API Wrapper for NodeJS</p>
+				<p><img src="https://img.shields.io/librariesio/release/npm/hefs?style=flat-square" alt="Dependencies">
+					<a href="https://npmjs.com/package/hefs"><img src="https://img.shields.io/npm/dw/hefs?style=flat-square" alt="Downloads"></a>
+					<a href="https://github.com/Edqe14/node-hefs/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Edqe14/node-hefs?style=flat-square" alt="License"></a>
+				<a href="https://github.com/Edqe14/node-hefs/issues"><img src="https://img.shields.io/github/issues/Edqe14/node-hefs?style=flat-square" alt="GitHub issues"></a></p>
+				<p>Hololive EN Fan Website API Wrapper for Node</p>
+				<a href="#quick-start" id="quick-start" style="color: inherit; text-decoration: none;">
+					<h2>Quick start</h2>
+				</a>
+				<ol>
+					<li>Install the package by running <code>npm i -S hefs</code></li>
+					<li>Import the package in your project</li>
+				</ol>
+				<pre><code class="language-typescript"><span style="color: #008000">// Import the package</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">Client</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;hefs&#039;</span><span style="color: #000000">);</span>
+<span style="color: #008000">// or ES6 import</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">Client</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;hefs&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = {</span>
+<span style="color: #000000">  </span><span style="color: #001080">session:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;copySessionTokenFromCookies&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">fetchSubmissionsOnStart:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">, </span><span style="color: #008000">// Fetch and cache all submissions when creating new client. Default: false</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Client</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+
+<span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">once</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;ready&#039;</span><span style="color: #000000">, () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #008000">// Your code</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+					<h2>Documentation</h2>
+				</a>
+				<p>Available on <a href="https://edqe14.github.io/node-hefs/">https://edqe14.github.io/node-hefs/</a></p>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>License</h2>
+				</a>
+				<p>This project is using the <a href="https://github.com/Edqe14/node-hefs/blob/main/LICENSE">MIT License</a></p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -87,6 +122,9 @@
 						<a href="classes/guildmanager.html" class="tsd-kind-icon">Guild<wbr>Manager</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/guildprojects.html" class="tsd-kind-icon">Guild<wbr>Projects</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/link.html" class="tsd-kind-icon">Link</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -99,6 +137,9 @@
 						<a href="classes/projectmanager.html" class="tsd-kind-icon">Project<wbr>Manager</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/projectsubmissions.html" class="tsd-kind-icon">Project<wbr>Submissions</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/setting.html" class="tsd-kind-icon">Setting</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -109,6 +150,9 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/default.html" class="tsd-kind-icon">default</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/eventtypes.html" class="tsd-kind-icon">Event<wbr>Types</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/guildconfig.html" class="tsd-kind-icon">Guild<wbr>Config</a>
@@ -128,9 +172,6 @@
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/submissionconfig.html" class="tsd-kind-icon">Submission<wbr>Config</a>
 					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/eventtypes.html" class="tsd-kind-icon">event<wbr>Types</a>
-					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#clientoptions" class="tsd-kind-icon">Client<wbr>Options</a>
 					</li>
@@ -142,9 +183,6 @@
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#guildresolvable" class="tsd-kind-icon">Guild<wbr>Resolvable</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="modules.html#partial" class="tsd-kind-icon">Partial</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#projectresolvable" class="tsd-kind-icon">Project<wbr>Resolvable</a>
@@ -168,6 +206,9 @@
 						<a href="modules.html#managers" class="tsd-kind-icon">Managers</a>
 					</li>
 					<li class=" tsd-kind-variable">
+						<a href="modules.html#collections" class="tsd-kind-icon">Collections</a>
+					</li>
+					<li class=" tsd-kind-variable">
 						<a href="modules.html#endpointdefaults" class="tsd-kind-icon">Endpoint<wbr>Defaults</a>
 					</li>
 					<li class=" tsd-kind-function">
@@ -189,6 +230,10 @@
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
