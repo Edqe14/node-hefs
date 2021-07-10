@@ -9,8 +9,8 @@ Hololive EN Fan Website API Wrapper for Node
 
 ## Quick start
 
- 1. Install the package by running `npm i -S hefs`.
- 2. Import the package in your project.
+1. Install the package by running `npm i -S hefs`
+2. Import the package in your project
 
 ```typescript
 // Import the package
