@@ -2,7 +2,6 @@
   "compilerOptions": {
     "moduleResolution": "node",
     "declaration": true,
-    "declarationMap": true,
     "declarationDir": "./dist",
     "outDir": "./dist",
     "removeComments": false,
@@ -28,7 +27,7 @@
     "baseUrl": "src"
   },
   "exclude": [
-    "node_modules"
+    "node_modules/"
   ],
   "include": [
     "src/**/*"

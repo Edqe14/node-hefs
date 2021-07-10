@@ -1,19 +1,16 @@
 {
   "name": "hefs",
   "version": "1.0.0",
-  "description": "",
+  "description": "API Wrapper for Hololive EN Fan Website",
   "main": "./dist/index.js",
-  "types": "./dist/hefs.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "jest --verbose",
+    "test": "jest --verbose --detectOpenHandles",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "prepare": "npx husky install && node .husky/link.js",
     "build": "tsc",
-    "extractor": "api-extractor run --local --verbose",
     "docs": "typedoc",
-    "report": "npm run lint && npm run extractor",
-    "all": "npm run build && npm run report && npm run docs"
+    "all": "npm run lint && npm run build && npm run docs"
   },
   "repository": {
     "type": "git",
@@ -27,9 +24,6 @@
   "homepage": "https://github.com/Edqe14/node-hefs#readme",
   "devDependencies": {
     "@chookslint/eslint-config-typescript": "1.0.2",
-    "@commitlint/cli": "12.1.4",
-    "@commitlint/config-conventional": "12.1.4",
-    "@microsoft/api-extractor": "7.18.1",
     "@types/jest": "26.0.24",
     "@typescript-eslint/eslint-plugin": "4.28.2",
     "@typescript-eslint/parser": "4.28.2",
@@ -37,9 +31,7 @@
     "eslint": "7.30.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "3.4.0",
-    "husky": "7.0.1",
     "jest": "27.0.6",
-    "lint-staged": "11.0.0",
     "prettier": "2.3.2",
     "ts-jest": "27.0.3",
     "typedoc": "0.21.2",
@@ -55,6 +47,13 @@
     "axios": "0.21.1"
   },
   "files": [
-    "dist/*"
+    "dist",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
+  "keywords": [
+    "hefs",
+    "holoen"
   ]
 }

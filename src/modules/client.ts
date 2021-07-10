@@ -56,8 +56,6 @@ class Client extends EventEmitter {
       throw new TypeError('Options must be an object');
     }
 
-    super();
-
     this.options = {
       baseURL: 'https://holoen.fans/api',
       headers: {},
