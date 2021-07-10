@@ -46,9 +46,6 @@ class Client extends EventEmitter {
   submissions: import('./managers/submissions').default;
   admin: import('./managers/admin').default;
 
-  /**
-   * @ignore
-   */
   private _ready = false;
 
   constructor(options: ClientOptions = {}) {
@@ -97,7 +94,6 @@ class Client extends EventEmitter {
 
   /**
    * Initial code to make sure everything is ready.
-   * @ignore
    */
   private async waitAllReady() {
     await Promise.all(
