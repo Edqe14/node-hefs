@@ -1,18 +1,17 @@
 import Client from '../client';
+import GuildProjects from '../collections/guildProjects';
 import Helpers from '../../helpers';
-import Partial from '../../helpers/partial';
-import Project from './project';
 import { format } from 'util';
 
 class Guild {
-  id?: string;
+  id: string;
   name: string;
   description: string;
   image: string;
   invite: string;
   debutDate: Date;
   color?: string;
-  projects?: Project[];
+  projects: GuildProjects;
   client: Client;
 
   constructor(config: GuildConfig, client: Client) {
@@ -27,8 +26,14 @@ class Guild {
     this.invite = format(this.client.endpoints.invite, invite);
     this.debutDate = new Date(debutDate);
     this.color = color;
+    this.projects = new GuildProjects(this.client, this);
   }
 
+  /**
+   * Edit the guild metadata.
+   * @param guildConfig New guild metadata.
+   * @returns A promise that resolves to a Guild object.
+   */
   edit(guildConfig: Partial<GuildConfig>): Promise<Guild> {
     return new Promise((resolve, reject) => {
       Promise.resolve().then(async () => {
@@ -61,6 +66,9 @@ class Guild {
     });
   }
 
+  /**
+   * Delete the guild.
+   */
   delete(): Promise<void> {
     return new Promise((resolve, reject) => {
       Promise.resolve().then(async () => {
@@ -77,13 +85,13 @@ class Guild {
   }
 
   toString(): string {
-    return this.invite;
+    return this.id;
   }
 }
 
 export default Guild;
 export interface GuildConfig {
-  _id?: string;
+  _id: string;
   name: string;
   description: string;
   image: string;

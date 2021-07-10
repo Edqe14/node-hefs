@@ -9,7 +9,7 @@ dotenv.config({
 
 jest.setTimeout(30000);
 const client = new Client({
-  session: process.env.SESSION,
+  // session: process.env.SESSION,
   // fetchSubmissionsOnStart: true,
 });
 
@@ -50,6 +50,15 @@ describe('client', () => {
       ).resolves.toBeInstanceOf(Classes.Guild);
       expect(guilds.fetch('notExist')).rejects.toBeInstanceOf(Error);
     });
+
+    it('should set guild projects', async () => {
+      await waitReady;
+      const guild = guilds.cache.get('rWykVp0wwqJfqVOiiwuHC');
+      const projects = guild!.projects;
+
+      expect(projects.cache.size).not.toBe(0);
+      expect(projects.cache.first()).toBeInstanceOf(Classes.Project);
+    })
 
     // TODO: test guild create
     // TODO: test guild update

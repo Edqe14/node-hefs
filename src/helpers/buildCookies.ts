@@ -1,5 +1,5 @@
 /**
- * Turn an object to a cookie string;
+ * Turn an object to a cookie string
  * @param cookies Cookies object
  *
  * @returns Stringified cookies

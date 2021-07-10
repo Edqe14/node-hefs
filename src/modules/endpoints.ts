@@ -1,3 +1,6 @@
+/**
+ * Default endpoints
+ */
 const endpoints = {
   whitelist: '/admin/setting?s=whitelist',
   projects: '/projects/%s',

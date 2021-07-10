@@ -1,12 +1,11 @@
 import Client from '../client';
 import Helpers from '../../helpers';
-import Partial from '../../helpers/partial';
 import Project from './project';
 import { format } from 'util';
 
 class Submission {
   id: string;
-  project: Project;
+  project?: Project;
   author?: string;
   srcIcon?: string;
   src?: string;
@@ -19,8 +18,8 @@ class Submission {
     const { _id, project, author, srcIcon, type, src, message } = config;
 
     this.client = client;
-    this.id = _id as string;
-    this.project = client.projects.resolve(project.toString()) as Project;
+    this.id = _id;
+    this.project = client.projects.resolve(project.toString());
     this.author = author;
     this.srcIcon = srcIcon;
     this.src = src;
@@ -28,6 +27,11 @@ class Submission {
     this.message = message;
   }
 
+  /**
+   * Edit the submission metadata.
+   * @param submissionConfig New submission metadata.
+   * @returns A promise that resolves to a Submission object.
+   */
   edit(submissionConfig: Partial<SubmissionConfig>): Promise<Submission> {
     return new Promise((resolve, reject) => {
       Promise.resolve().then(async () => {
@@ -70,6 +74,9 @@ class Submission {
     });
   }
 
+  /**
+   * Delete the submission.
+   */
   delete(): Promise<void> {
     return new Promise((resolve, reject) => {
       Promise.resolve().then(async () => {
@@ -90,21 +97,13 @@ class Submission {
   }
 
   toString(): string {
-    return (
-      /* eslint-disable prettier/prettier */
-      this.src
-      ?? this.srcIcon
-      ?? this.message
-      ?? this.author
-      ?? this.id
-      /* eslint-enable prettier/prettier */
-    );
+    return this.id;
   }
 }
 
 export default Submission;
 export interface SubmissionConfig {
-  _id?: string;
+  _id: string;
   project: number;
   author?: string;
   srcIcon?: string;

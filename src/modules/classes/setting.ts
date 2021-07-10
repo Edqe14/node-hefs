@@ -12,6 +12,10 @@ class Setting {
     this.id = _id;
     this.value = value;
   }
+
+  toString(): string {
+    return this.id;
+  }
 }
 
 export default Setting;

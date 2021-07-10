@@ -27,6 +27,11 @@ export {
   SubmissionResolvable,
 } from './modules/managers/submissions';
 
+// Export collections
+export { default as Collections } from './modules/collections';
+export { default as GuildProjects } from './modules/collections/guildProjects';
+export { default as ProjectSubmissions } from './modules/collections/projectSubmissions';
+
 // Export classes
 export { default as Classes } from './modules/classes';
 export { default as Guild, GuildConfig } from './modules/classes/guild';
@@ -41,7 +46,6 @@ export {
 
 // Export Helpers
 export { default as Helpers } from './helpers';
+export { default as EventTypes } from './helpers/eventTypes';
 export { default as buildCookies } from './helpers/buildCookies';
-export { default as eventTypes } from './helpers/eventTypes';
 export { default as isOk } from './helpers/isOk';
-export { default as Partial } from './helpers/partial';

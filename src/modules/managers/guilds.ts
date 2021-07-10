@@ -7,8 +7,17 @@ import Helpers from '../../helpers';
 import { format } from 'util';
 
 declare interface GuildManager {
+  /**
+   * @event
+   */
   on: <U extends keyof Events>(event: U, listener: Events[U]) => this;
+  /**
+   * @event
+   */
   once: <U extends keyof Events>(event: U, listener: Events[U]) => this;
+  /**
+   * @event
+   */
   emit: <U extends keyof Events>(
     event: U,
     ...args: Parameters<Events[U]>
@@ -32,6 +41,10 @@ class GuildManager extends EventEmitter {
     this.hydrate();
   }
 
+  /**
+   * Initial code for cache hydration.
+   * @fires GuildManager#ready
+   */
   private async hydrate() {
     if (!this.client.options.disableHydration) await this.fetch('', true);
 
@@ -39,16 +52,33 @@ class GuildManager extends EventEmitter {
     this.emit('ready');
   }
 
+  /**
+   * Resolve a resolvable to a matching object.
+   * @param guild Guild resolvable to resolve.
+   * @returns Guild object or `undefined`.
+   */
   resolve(guild: GuildResolvable): Guild | undefined {
     if (guild instanceof Guild) return guild;
     return this.cache.get(guild);
   }
 
+  /**
+   * Resolve a resolvable to a matching object ID.
+   * @param guild Guild resolvable to resolve.
+   * @returns Guild ID or `undefined`.
+   */
   resolveID(guild: GuildResolvable): string | undefined {
     if (typeof guild === 'string') return this.cache.get(guild)?.id;
     return guild?.id;
   }
 
+  /**
+   * Fetch data from cache or send a request the API endpoint if not cached.
+   * @param property Guild ID. Default `''`.
+   * @param force Force fetch from the API endpoint. Default `false`.
+   * @param cache Caches parsed object from response. Default `true`.
+   * @returns A promise that resolves to a Guild object or an Array of Guild objects if no ID is provided.
+   */
   fetch(id = '', force = false, cache = true): Promise<Guild | Guild[]> {
     return new Promise((resolve, reject) => {
       Promise.resolve().then(async () => {
@@ -81,7 +111,13 @@ class GuildManager extends EventEmitter {
     });
   }
 
-  create(guildConfig: GuildConfig, cache = true): Promise<Guild> {
+  /**
+   * Create a new guild.
+   * @param guildConfig Guild metadata.
+   * @param cache Caches parsed object from response. Default `true`.
+   * @returns A promise that resolves to a Guild object.
+   */
+  create(guildConfig: Omit<GuildConfig, '_id'>, cache = true): Promise<Guild> {
     return new Promise((resolve, reject) => {
       Promise.resolve().then(async () => {
         if (!guildConfig || typeof guildConfig !== 'object') {
@@ -104,6 +140,19 @@ class GuildManager extends EventEmitter {
     });
   }
 
+  /**
+   * Promise that will be resolved when the manager is ready.
+   */
+  awaitReady(): Promise<void> {
+    return new Promise((resolve) => {
+      if (this._ready) return resolve();
+      return this.once('ready', resolve);
+    });
+  }
+
+  /**
+   * A boolean indicating whether client is ready.
+   */
   get ready(): boolean {
     return this._ready;
   }

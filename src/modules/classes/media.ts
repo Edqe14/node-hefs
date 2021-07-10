@@ -15,7 +15,7 @@ class Media {
   }
 
   toString(): string {
-    return this.src ?? this.message ?? this.type;
+    return this.id;
   }
 }
 

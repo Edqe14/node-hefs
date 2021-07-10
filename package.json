@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/hefs.d.ts",
   "scripts": {
     "test": "jest --verbose",
     "lint": "eslint .",
@@ -12,7 +12,8 @@
     "build": "tsc",
     "extractor": "api-extractor run --local --verbose",
     "docs": "typedoc",
-    "report": "npm run lint && npm run extractor && npm run docs"
+    "report": "npm run lint && npm run extractor",
+    "all": "npm run build && npm run report && npm run docs"
   },
   "repository": {
     "type": "git",

@@ -2,16 +2,17 @@ import Link, { LinkConfig } from './link';
 import Media, { MediaConfig } from './media';
 import Submission, { SubmissionConfig } from './submission';
 import Client from '../client';
+import Collection from '@discordjs/collection';
 import Guild from './guild';
 import Helpers from '../../helpers';
-import Partial from '../../helpers/partial';
+import ProjectSubmissions from '../collections/projectSubmissions';
 import { format } from 'util';
 
 class Project {
-  id?: string;
+  id: string;
   url: string;
   status: 'ongoing' | 'past';
-  guild?: Guild;
+  guild: Guild;
   media?: Media[];
   title: string;
   shortDescription: string;
@@ -20,7 +21,7 @@ class Project {
   date: Date;
   flags?: string[];
   ogImage?: string;
-  submissions?: Submission[];
+  submissions: ProjectSubmissions;
   client: Client;
 
   constructor(config: ProjectConfig, client: Client) {
@@ -43,7 +44,7 @@ class Project {
     this.id = _id?.toString();
     this.url = `${client.options.baseURL}/projects/${this.id}`;
     this.status = status;
-    this.guild = client.guilds.resolve(guild);
+    this.guild = client.guilds.resolve(guild) as Guild;
     this.media = media?.map((m) => new Media(m));
     this.title = title;
     this.shortDescription = shortDescription;
@@ -52,9 +53,15 @@ class Project {
     this.date = new Date(date);
     this.flags = flags;
     this.ogImage = ogImage;
+    this.submissions = new ProjectSubmissions(this.client, this.guild);
   }
 
-  fetchSubmissions(cache = true): Promise<Submission[]> {
+  /**
+   * Fetch related submissions from the API.
+   * @param cache Caches parsed object from response. Default `true`.
+   * @returns A promise that resolves to a Collection of submission objects.
+   */
+  fetchSubmissions(cache = true): Promise<Collection<string, Submission>> {
     return new Promise((resolve, reject) => {
       Promise.resolve().then(async () => {
         const url = format(this.client.endpoints.submissions, this.id);
@@ -67,13 +74,18 @@ class Project {
           .filter((s) => s._id !== undefined || s._id !== null)
           .map((s) => new Submission(s, this.client));
         if (cache) {
-          submissions.forEach((s) => this.submissions?.push(s));
+          submissions.forEach((s) => this.submissions.cache.set(s.id, s));
         }
-        return resolve(submissions);
+        return resolve(new Collection(submissions.map((s) => [s.id, s])));
       });
     });
   }
 
+  /**
+   * Edit the project metadata.
+   * @param projectConfig New project metadata.
+   * @returns A promise that resolves to a Project object.
+   */
   edit(projectConfig: Partial<ProjectConfig>): Promise<Project> {
     return new Promise((resolve, reject) => {
       Promise.resolve().then(async () => {
@@ -108,7 +120,7 @@ class Project {
         this.id = _id?.toString();
         this.url = `${this.client.options.baseURL}/projects/${this.id}`;
         this.status = status;
-        this.guild = this.client.guilds.resolve(guild);
+        this.guild = this.client.guilds.resolve(guild) as Guild;
         this.media = media?.map((m) => new Media(m));
         this.title = title;
         this.shortDescription = shortDescription;
@@ -123,6 +135,9 @@ class Project {
     });
   }
 
+  /**
+   * Delete the project.
+   */
   delete(): Promise<void> {
     return new Promise((resolve, reject) => {
       Promise.resolve().then(async () => {
@@ -139,14 +154,14 @@ class Project {
   }
 
   toString(): string {
-    return this.url;
+    return this.id;
   }
 }
 
 export default Project;
 
 export interface ProjectConfig {
-  _id?: number;
+  _id: number;
   status: 'ongoing' | 'past';
   guild: string;
   media?: MediaConfig[];

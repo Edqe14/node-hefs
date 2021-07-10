@@ -1,10 +1,10 @@
 import axios, { AxiosInstance } from 'axios';
 import endpoints, { EndpointNames, Endpoints } from './endpoints';
+import Collections from './collections';
 import { EventEmitter } from 'events';
 import Events from '../helpers/eventTypes';
 import Helpers from '../helpers';
 import Managers from './managers';
-import Partial from '../helpers/partial';
 
 export type ClientOptions = {
   baseURL?: string;
@@ -26,8 +26,9 @@ declare interface Client {
 }
 
 /**
- * Main client class
+ * Main client class.
  *
+ * @example
  * ```typescript
  * const options = {
  *   session: 'copySessionTokenFromCookies',
@@ -49,6 +50,8 @@ class Client extends EventEmitter {
   private _ready = false;
 
   constructor(options: ClientOptions = {}) {
+    super();
+
     if (typeof options !== 'object') {
       throw new TypeError('Options must be an object');
     }
@@ -94,17 +97,23 @@ class Client extends EventEmitter {
 
   /**
    * Initial code to make sure everything is ready.
+   *
+   * @fires Client#ready
    */
   private async waitAllReady() {
     await Promise.all(
-      [this.guilds, this.projects].map(
-        (c) => new Promise((resolve) => c.once('ready', resolve as () => void)),
-      ),
+      [this.guilds, this.projects, this.admin].map((c) => c.awaitReady()),
     );
 
     if (!this.options.disableHydration) {
       this.guilds.cache.forEach((g) => {
-        g.projects = this.projects.cache.filter((p) => p.guild === g).array();
+        g.projects = new Collections.GuildProjects(
+          this,
+          g,
+          this.projects.cache
+            .filter((p) => p.guild === g)
+            .map((p) => [p.id, p]),
+        );
       });
     }
 
@@ -114,9 +123,12 @@ class Client extends EventEmitter {
       );
 
       if (!this.options.disableHydration) {
-        submissions.flat().forEach((s) => {
-          this.submissions.cache.set(s.id, s);
-        });
+        submissions
+          .map((c) => c.array())
+          .flat()
+          .forEach((s) => {
+            this.submissions.cache.set(s.id, s);
+          });
       }
     }
 
@@ -140,6 +152,9 @@ class Client extends EventEmitter {
     this.endpoints[endpoint] = value;
   }
 
+  /**
+   * A boolean indicating whether client is ready.
+   */
   get ready(): boolean {
     return this._ready;
   }

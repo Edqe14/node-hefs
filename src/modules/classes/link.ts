@@ -12,7 +12,7 @@ class Link {
   }
 
   toString(): string {
-    return this.link;
+    return this.id;
   }
 }
 

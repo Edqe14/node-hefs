@@ -1,23 +1,29 @@
 import Submission, { SubmissionConfig } from '../classes/submission';
 import Client from '../client';
 import Collection from '@discordjs/collection';
-import { EventEmitter } from 'events';
+import Guild from '../classes/guild';
 import Helpers from '../../helpers';
+import { SubmissionResolvable } from 'modules/managers/submissions';
 import { format } from 'util';
 
-export type SubmissionResolvable = string | Submission;
+type OmitConfig = {
+  _id: never;
+  guild: never;
+};
 
-class SubmissionManager extends EventEmitter {
+class ProjectSubmissions {
   client: Client;
+  guild: Guild;
   cache: Collection<string, Submission>;
 
-  private _ready = false;
-
-  constructor(client: Client) {
-    super();
-
+  constructor(
+    client: Client,
+    guild: Guild,
+    entries?: readonly (readonly [string, Submission])[] | null | undefined,
+  ) {
     this.client = client;
-    this.cache = new Collection();
+    this.guild = guild;
+    this.cache = new Collection(entries);
   }
 
   /**
@@ -50,7 +56,7 @@ class SubmissionManager extends EventEmitter {
    */
   create(
     submissionConfig:
-      | Omit<SubmissionConfig, '_id'> // eslint-disable-line @typescript-eslint/indent
+      | Omit<SubmissionConfig, keyof OmitConfig> // eslint-disable-line @typescript-eslint/indent
       | Omit<SubmissionConfig, '_id'>[], // eslint-disable-line @typescript-eslint/indent
     cache = true,
   ): Promise<Submission[]> {
@@ -73,6 +79,12 @@ class SubmissionManager extends EventEmitter {
         if (!Array.isArray(submissionConfig)) {
           submissions = [submissionConfig];
         }
+
+        submissions.forEach((s) => {
+          Object.assign(s, {
+            guild: this.guild.id,
+          });
+        });
 
         // Remove ID to ensure new submissions
         submissions.forEach(
@@ -102,19 +114,6 @@ class SubmissionManager extends EventEmitter {
       });
     });
   }
-
-  /**
-   * A boolean indicating whether client is ready.
-   */
-  get ready(): boolean {
-    return this._ready;
-  }
-
-  /**
-   * Ready event.
-   * @event
-   */
-  static READY: 'ready' = 'ready';
 }
 
-export default SubmissionManager;
+export default ProjectSubmissions;
